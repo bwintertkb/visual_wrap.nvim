@@ -40,6 +40,7 @@ M = {}
 
 M.setup = function ()
 	-- Set the keybindings for the visual_wrap
+	vim.api.nvim_set_keymap("v", "<leader>[", ":lua visual_wrap('[')<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("v", "<leader>]", ":lua visual_wrap('[')<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("v", "<leader>{", ":lua visual_wrap('{')<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("v", "<leader>{", ":lua visual_wrap('{')<CR>", { noremap = true })
