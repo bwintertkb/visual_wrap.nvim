@@ -23,7 +23,7 @@ local function get_visual_range()
 	local row_shift = get_opening_bracket_row_shift(text[1])
 	start_[2] = start_[2] + row_shift
 
-	return start_[1], start_[2], end_[1], end_[2]
+	return start_[1], start_[2], end_[1], end_[2] + 1
 end
 
 function visual_wrap(bracket)
