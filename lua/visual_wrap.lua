@@ -18,12 +18,14 @@ local function get_visual_range()
 	if end_[2] >= 2147483647 then
 		local lines = vim.api.nvim_buf_get_lines(0, end_[1] - 1, end_[1], false)
 		end_[2] = #lines[1]
+	else
+		end_[2] = end_[2] + 1
 	end
 	local text = vim.api.nvim_buf_get_text(0, start_[1] - 1, start_[2], end_[1] - 1, end_[2], {})
 	local row_shift = get_opening_bracket_row_shift(text[1])
 	start_[2] = start_[2] + row_shift
 
-	return start_[1], start_[2], end_[1], end_[2] + 1
+	return start_[1], start_[2], end_[1], end_[2]
 end
 
 function visual_wrap(bracket)
