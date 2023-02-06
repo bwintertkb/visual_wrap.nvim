@@ -1,4 +1,4 @@
-local BRACKET_MATCH = { ["{"] = "}", ["["] = "]", ["("] = ")", ["<"] = ">", ['"'] = '"', ["'"] = "'" }
+local BRACKET_MATCH = { ["{"] = "}", ["["] = "]", ["("] = ")", ["<"] = ">", ['"'] = '"', ["\'"] = "\'" }
 
 local function get_opening_bracket_row_shift(str)
 	-- this is to account for any tabs or whitespace before the character
