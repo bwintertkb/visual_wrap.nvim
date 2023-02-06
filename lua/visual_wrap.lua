@@ -51,7 +51,7 @@ M.setup = function ()
 	vim.api.nvim_set_keymap("v", "<leader><", ":lua visual_wrap('<')<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("v", "<leader>>", ":lua visual_wrap('<')<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("v", "<leader>\"", ":lua visual_wrap('\"')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>\'", ":lua visual_wrap("\'")<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>\'", ":lua visual_wrap('\'')<CR>", { noremap = true })
 end
 
 return M
