@@ -28,7 +28,10 @@ local function get_visual_range()
 	return start_[1], start_[2], end_[1], end_[2]
 end
 
-function visual_wrap(bracket)
+function visual_wrap_debug(bracket)
+	if bracket == 'single_quote' then
+		bracket = '\''
+	end
 	local start_row, start_col, end_row, end_col = get_visual_range()
 	start_row = start_row - 1
 	end_row = end_row - 1
@@ -42,17 +45,18 @@ M = {}
 
 M.setup = function ()
 	-- Set the keybindings for the visual_wrap
-	vim.api.nvim_set_keymap("v", "<leader>[", ":lua visual_wrap('[')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>]", ":lua visual_wrap('[')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>{", ":lua visual_wrap('{')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>{", ":lua visual_wrap('{')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>(", ":lua visual_wrap('(')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>)", ":lua visual_wrap('(')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader><", ":lua visual_wrap('<')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>>", ":lua visual_wrap('<')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>\"", ":lua visual_wrap('\"')<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("v", "<leader>\'", ":lua visual_wrap('\'')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>[", ":lua visual_wrap_debug('[')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>]", ":lua visual_wrap_debug('[')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>{", ":lua visual_wrap_debug('{')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>{", ":lua visual_wrap_debug('{')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>(", ":lua visual_wrap_debug('(')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>)", ":lua visual_wrap_debug('(')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader><", ":lua visual_wrap_debug('<')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>>", ":lua visual_wrap_debug('<')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>\"", ":lua visual_wrap_debug('\"')<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("v", "<leader>\'", ":lua visual_wrap_debug('single_quote')<CR>", { noremap = true })
 end
 
 return M
+
 
