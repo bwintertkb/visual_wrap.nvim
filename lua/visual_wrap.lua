@@ -15,10 +15,10 @@ local function get_visual_range()
 	local start_ = vim.api.nvim_buf_get_mark(0, "<")
 	local end_ = vim.api.nvim_buf_get_mark(0, ">")
 	-- Setting the first column number to match that of a character
+	local lines = vim.api.nvim_buf_get_lines(0, end_[1] - 1, end_[1], false)
 	if end_[2] >= 2147483647 then
-		local lines = vim.api.nvim_buf_get_lines(0, end_[1] - 1, end_[1], false)
 		end_[2] = #lines[1]
-	else
+	elseif end_[2] < #lines[1] then
 		end_[2] = end_[2] + 1
 	end
 	local text = vim.api.nvim_buf_get_text(0, start_[1] - 1, start_[2], end_[1] - 1, end_[2], {})
@@ -58,5 +58,6 @@ M.setup = function ()
 end
 
 return M
+
 
 
