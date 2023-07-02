@@ -29,12 +29,8 @@ local function get_visual_range()
 end
 
 function visual_wrap(bracket)
-	vim.api.nvim_echo({ { string.format('Hello BRACKET %s, AT START!!!', bracket) } }, false, {})
 	if bracket == 'single_quote' then
 		bracket = '\''
-	end
-	if bracket == 'backtick' then
-		bracket = '`'
 	end
 
 	local start_row, start_col, end_row, end_col = get_visual_range()
