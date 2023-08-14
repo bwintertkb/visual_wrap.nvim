@@ -13,7 +13,7 @@ Once you've highlighted your text in **visual-line** (i.e. visual mode) mode you
 - `<leader>>` wraps your text as `<..text..>`
 - `<leader>"` wraps your text as `"..text.."`
 - `<leader>'` wraps your text as `'..text..'`
-- `<leader>`\`` wraps your text as `\`..text..\`
+- `<leader>`\` wraps your text as ` <backtick>..text..<backtick> `
 
 ### Installation
 Using `packer`
