@@ -39,28 +39,11 @@ Basic setup with defaults:
 require("visual_wrap").setup()
 ```
 
-### Options
-
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `silent` | boolean | `true` | Suppress command output in the command line |
-| `keymaps` | table | see below | Custom keybindings for each bracket type |
-
-### Silent mode
-
-To suppress command echo when wrapping:
-```lua
-require("visual_wrap").setup({
-    silent = true,
-})
-```
-
 ### Custom keymaps
 
 Override default keybindings or disable specific ones:
 ```lua
 require("visual_wrap").setup({
-    silent = true,
     keymaps = {
         ["["] = "<leader>s[",
         ["{"] = "<leader>s{",
