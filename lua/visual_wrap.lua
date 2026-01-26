@@ -11,7 +11,6 @@ local BRACKET_MATCH = {
 local M = {}
 
 local config = {
-	silent = true,
 	keymaps = {
 		["["] = "<leader>[",
 		["]"] = "<leader>]",
@@ -63,7 +62,6 @@ function M.wrap(bracket)
 	vim.api.nvim_win_set_cursor(win, { start_row + 1, start_col })
 end
 
--- Map a bracket key to its opening bracket for wrapping
 local BRACKET_TO_OPENER = {
 	["}"] = "{",
 	["]"] = "[",
@@ -73,18 +71,15 @@ local BRACKET_TO_OPENER = {
 
 M.setup = function(opts)
 	opts = opts or {}
-	config.silent = opts.silent or false
 	if opts.keymaps then
 		config.keymaps = vim.tbl_deep_extend("force", config.keymaps, opts.keymaps)
 	end
-
-	local keymap_opts = { noremap = true, silent = config.silent }
 
 	for bracket, lhs in pairs(config.keymaps) do
 		if lhs then
 			local opener = BRACKET_TO_OPENER[bracket] or bracket
 			local escaped = opener:gsub("'", "\\'")
-			vim.api.nvim_set_keymap("v", lhs, ":lua require('visual_wrap').wrap('" .. escaped .. "')<CR>", keymap_opts)
+			vim.keymap.set("v", lhs, "<Cmd>lua require('visual_wrap').wrap('" .. escaped .. "')<CR>", { noremap = true })
 		end
 	end
 end
