@@ -11,7 +11,7 @@ local BRACKET_MATCH = {
 local M = {}
 
 local config = {
-	silent = false,
+	silent = true,
 	keymaps = {
 		["["] = "<leader>[",
 		["]"] = "<leader>]",
